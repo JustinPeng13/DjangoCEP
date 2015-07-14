@@ -17,20 +17,3 @@ class Item(models.Model):
 
     def __unicode__(self):
         return self.name
-
-
-class Folder(models.Model):
-    title = models.CharField(max_length=255)
-    color = models.CharField(max_length=50, default="purple")
-    fontcolor = models.CharField(max_length=50, default="white")
-    
-    def __str__(self):
-        return self.title
-        
-class Tag(models.Model):
-    title = models.CharField(max_length=255)
-    color = models.CharField(max_length=50, default="red")
-    fontcolor = models.CharField(max_length=50, default="black")
-    
-    def __str__(self):
-        return self.title
