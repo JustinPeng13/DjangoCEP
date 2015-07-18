@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^item/(?P<item_id>\d+)$', views.item, name='detail'),
     url(r'^list/$', views.items_list, name='items_list'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^cat/(?P<cats>.*)$', views.items_cats, name='items_list'),
 )

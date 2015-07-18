@@ -11,10 +11,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
+        migrations.AlterField(
             model_name='item',
-            name='remarks',
-            field=models.TextField(default='NIL', blank=True),
-            preserve_default=False,
+            name='cat',
+            field=models.ManyToManyField(related_name='grocery_list', to='grocery_list.Cat'),
+            preserve_default=True,
         ),
     ]

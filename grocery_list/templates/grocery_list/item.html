@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{item.name}}</title>
+    </head>
+    <body>
+        Name:{{item.name}} <br/>
+        Quantity:{{item.quantity}}<br/>
+        Cat(s):
+        <ul>
+        {%for c in item.cat.all%}
+            <li>{{c.name}}</li>
+        {%endfor%}
+        </ul>
+    </body>
+</html>

@@ -1,13 +1,14 @@
 {%load staticfiles%}
 <link rel="stylesheet" type="text/css" href="{% static 'grocery_list/style.css' %}" />
+<h2>Total number of notes: {{total}}</h2>
 {% if items %}
     <ul>
     {% for item in items %}
         <a href={%url 'detail' item.id %}>
-            <div class="postit">
+            <div class="postit" style="background:{{note.color}};color:{{note.fontcolor}}">
                 <u>{{item.quantity}} {{item.name}}</u>
                 <br>
-                {{item.tag}}
+                {{item.cat}}
             </div>
         </a>
     {% endfor %}
