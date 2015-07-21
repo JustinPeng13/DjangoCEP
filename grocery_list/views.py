@@ -9,7 +9,7 @@ from django.db.models import Q
 def items_list(request):
     allitems = Item.objects.all()
     total = allitems.count()
-    return render(request, 'grocery_list/index.html', {'items': allitems})
+    return render(request, 'grocery_list/index.html', {'items': allitems, 'total': total})
 
 def item(request, item_id):
     item = Item.objects.get(id=item_id)

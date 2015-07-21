@@ -10,9 +10,10 @@ class Cat(models.Model):
 # Create your models here.
 class Item(models.Model):
     name = models.CharField(max_length=255)
-    quantity = models.TextField()
-    cat = models.ManyToManyField(Cat, related_name='grocery_list')
+    quantity = models.IntegerField()
+    cat = models.ManyToManyField(Cat, related_name='grocery_list', blank=True)
     remarks = models.TextField(blank=True)
+    date = models.DateField(blank=True)
 
 
     def __unicode__(self):

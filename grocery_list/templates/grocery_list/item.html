@@ -4,13 +4,15 @@
         <title>{{item.name}}</title>
     </head>
     <body>
-        Name:{{item.name}} <br/>
-        Quantity:{{item.quantity}}<br/>
+        Name: {{item.name}} <br/>
+        Quantity: {{item.quantity}}<br/>
+        {%if item.cat.all%}
         Cat(s):
         <ul>
         {%for c in item.cat.all%}
             <li>{{c.name}}</li>
         {%endfor%}
+        {%endif%}
         </ul>
     </body>
 </html>
