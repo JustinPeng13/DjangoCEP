@@ -1,0 +1,81 @@
+body {
+  background-color :#f5f5f5;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+h2 {
+  color: #b45342;
+  font-size: 25px;
+  text-align: left;
+}
+h3 {
+  color: #cd0000;
+  font-size: 30px;
+  letter-spacing: -2px;
+  text-align: left;
+}
+h1 {
+  color: #a2a3f6;
+  font-size: 20px;
+  letter-spacing: -2px;
+  text-align: left;
+}
+.list {
+  color: #555;
+  font-size: 22px;
+  padding: 0 !important;
+  width: 500px;
+  font-family: courier, monospace;
+  border-top: 1px solid #ffaa9f;
+  border-right: 1px solid #ffaa9f;
+  border-bottom: 1px solid #ffaa9f;
+}
+.list li {
+  list-style: none;
+  border-bottom: 1px dotted #ccc;
+  text-indent: 10px;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+}
+.list li:hover {
+  background-color: #f0f0f0;
+  -webkit-transition: all 0.2s;
+  -moz-transition:    all 0.2s;
+  -ms-transition:     all 0.2s;
+  -o-transition:      all 0.2s;
+}
+.lines {
+  border-left: 1px solid #ffaa9f;
+  border-right: 1px solid #ffaa9f;
+  width: 3px;
+  float: left;
+  height: 5000px;
+  margin-left: 40px;
+}
+.rotatevertical{
+    font-size:0.6em;
+    width:0px;
+    height:0px;
+    margin-top:-25px;
+    margin-left:0px;
+    color:green;
+    -ms-transform:rotate(-90deg); /* IE 9 */
+    -moz-transform:rotate(-90deg); /* Firefox */
+    -webkit-transform:rotate(-90deg); /* Safari and Chrome */
+    -o-transform:rotate(-90deg); /* Opera */
+}
+#base {
+  position:static;
+	width: 0px;
+	height: 0px;
+	float:left;
+	margin-left:-25px;
+	margin-right:25px;
+	margin-top:-40px;
+	border-style: solid;
+	border-width: 70px 70px 0 0;
+	border-color: #007bff transparent transparent transparent;
+}
+

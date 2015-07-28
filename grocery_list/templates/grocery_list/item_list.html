@@ -1,11 +1,11 @@
 {%load staticfiles%}
 <link rel="stylesheet" type="text/css" href="{% static 'grocery_list/style.css' %}" />
-<h2>Total number of items: {{total}}</h2>
-{% if items %}
-        <div class="lines">
-    <ul class="list">
-    {% for item in items %}
-        <a href={%url 'detail' item.id %}>
+    <h2>Total number of items: {{total}}</h2>
+    {% if object_list  %}
+            	<div class="lines">
+            	    <ul class='list'>
+        {% for item in object_list  %}
+        <a href={% url 'detail' item.id %}>
             <li>
             <u><h3>{{item.quantity}} {{item.name}}</h3></u>
             {% for cat in item.cat.all %}
@@ -15,10 +15,10 @@
             <br>
             Buy by: {{item.date}}
             </li>
-        </a>
-    {% endfor %}
-    </ul>
-        </div>
-{% else %}
-    <p>No items are available.</p>
-{% endif %}
+            </a>
+        {% endfor %}
+        </ul>
+      </div>
+    {% else %}
+        <p>No items are available.</p>
+    {% endif %}

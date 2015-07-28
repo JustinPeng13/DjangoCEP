@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.urlresolvers import reverse
+
 class Cat(models.Model):
     name = models.CharField(max_length=255)
     color = models.CharField(max_length=50, default="pink")
@@ -14,7 +16,9 @@ class Item(models.Model):
     cat = models.ManyToManyField(Cat, related_name='grocery_list', blank=True)
     remarks = models.TextField(blank=True)
     date = models.DateField(blank=True)
-
+    
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"pk":self.pk})
 
     def __unicode__(self):
         return self.name

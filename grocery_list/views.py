@@ -1,18 +1,34 @@
 from django.shortcuts import render
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponse
 from .models import Item, Cat
 import re
 from django.db.models import Q
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import ItemForm
 
 # Create your views here.
 def items_list(request):
     allitems = Item.objects.all()
     total = allitems.count()
     return render(request, 'grocery_list/index.html', {'items': allitems, 'total': total})
+    
+class ItemList(ListView):
+    model = Item
+    allitems = Item.objects.all()
+    total = 10
+    
+    def get_queryset(self):
+        cat = self.kwargs['cat']
+        if cat == '':
+            return Item.objects.all()
+        else:
+            return Item.objects.filter(cat__name__iexact=cat)
+        
 
-def item(request, item_id):
-    item = Item.objects.get(id=item_id)
+def item(request, pk):
+    item = Item.objects.get(id=pk)
     return render(request, 'grocery_list/item.html', {'item':item})
 
 def items_cats(request, cats):
@@ -36,5 +52,17 @@ def items_cats(request, cats):
     print(query)
     # Query the model
     allitems = Item.objects
-    total = allnotes.count();
+    total = allitems.count();
     return render(request, 'grocery_list/index.html', {'pieces':pieces, 'items': allitems, 'total':total})   
+
+class ItemCreate(CreateView):
+    model = Item
+    form_class = ItemForm
+
+class ItemUpdate(UpdateView):
+    model = Item
+    form_class = ItemForm
+
+class ItemDelete(DeleteView):
+    model = Item
+    success_url = reverse_lazy('list')
