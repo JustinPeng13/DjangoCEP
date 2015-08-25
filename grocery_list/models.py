@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from accounts.models import UserProfile
 
 class Cat(models.Model):
     name = models.CharField(max_length=255)
@@ -11,6 +12,7 @@ class Cat(models.Model):
 
 # Create your models here.
 class Item(models.Model):
+    user = models.ForeignKey(UserProfile, blank=True, null=True)
     name = models.CharField(max_length=255)
     quantity = models.IntegerField()
     cat = models.ManyToManyField(Cat, related_name='grocery_list', blank=True)

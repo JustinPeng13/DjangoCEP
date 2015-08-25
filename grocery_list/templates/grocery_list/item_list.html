@@ -1,18 +1,19 @@
+{%extends 'grocery_list/base.html'%}
 {%load staticfiles%}
+{% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'grocery_list/style.css' %}" />
     <h2>Total number of items: {{total}}</h2>
+    <a class="btn btn-primary btn-sm" type="button" href="http://assignment-1-justinpeng13.c9.io/add/">+ Add an Item</a>
     {% if object_list  %}
-            	<div class="lines">
+            	<div id="wrapper">
             	    <ul class='list'>
         {% for item in object_list  %}
         <a href={% url 'detail' item.id %}>
             <li>
             <u><h3>{{item.quantity}} {{item.name}}</h3></u>
             {% for cat in item.cat.all %}
-            <br>
                 <h1>{{cat.name}}</h1>
             {%endfor%}
-            <br>
             Buy by: {{item.date}}
             </li>
             </a>
@@ -22,3 +23,5 @@
     {% else %}
         <p>No items are available.</p>
     {% endif %}
+{%endblock%}
+

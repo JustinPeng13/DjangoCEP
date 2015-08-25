@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{{item.name}}</title>
-    </head>
-    <body>
+{%extends 'grocery_list/base.html'%}
+{%load staticfiles%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'grocery_list/style.css' %}" />
+<div id="wrapper">
         Name: {{item.name}} <br/>
         Quantity: {{item.quantity}}<br/>
         {%if item.cat.all%}
-        Cat(s):
+        Category(ies):
         <ul>
         {%for c in item.cat.all%}
             <li>{{c.name}}</li>
@@ -16,5 +15,5 @@
         </ul>
         <br>
         Buy by: {{item.date}}
-    </body>
-</html>
+    </div>
+{%endblock%}
